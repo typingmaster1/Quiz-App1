@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Quiz Management System</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <!-- Heading with Admin + Leaderboard Button -->
+  <h1 style="display:flex; justify-content:space-between; align-items:center; padding:0 20px;">
+    Quiz Management System 
+    <div>
+      <button onclick="showPanel('leaderboard')" style="background:#3498db; font-size:14px;">Leaderboard</button>
+      <button onclick="showPanel('adminLogin')" style="background:#e67e22; font-size:14px;">Admin</button>
+    </div>
+  </h1>
+
+  <!-- Admin Login -->
+  <div id="adminLogin" class="panel">
+    <h2>Admin Login</h2>
+    <form id="adminForm">
+      <input id="adminUser" placeholder="Username"><br><br>
+      <input id="adminPass" type="password" placeholder="Password"><br><br>
+      <button type="submit">Login</button>
+      <button type="button" onclick="showPanel('studentLogin')">Back</button>
+    </form>
+  </div>
+
+  <!-- Admin Dashboard -->
+  <div id="adminPanel" class="panel">
+    <h2>Admin Dashboard</h2>
+    <div id="adminRecords"></div>
+    <button onclick="showPanel('studentLogin')">Logout</button>
+  </div>
+
+  <!-- Student Login -->
+  <div id="studentLogin" class="panel" style="display:block;">
+    <h2>Student Login</h2>
+    <form id="studentForm">
+      <input id="sname" placeholder="Name" required><br><br>
+      <input id="sroll" placeholder="Roll No" required><br><br>
+      <select id="scategory">
+        <option value="math">Math</option>
+        <option value="science">Science</option>
+        <option value="Geography">Geography</option>
+        <option value="History">History</option>
+        <option value="Science:Computer">Science:Computer</option>
+        <option value="Science & Nature">Science & Nature</option>
+      </select><br><br>
+      <select id="sdifficulty">
+        <option value="easy">Easy</option>
+        <option value="hard">Hard</option>
+      </select><br><br>
+      <button type="submit">Start Quiz</button>
+      <button type="button" onclick="showPanel('adminLogin')">Back</button>
+    </form>
+  </div>
+
+  <!-- Quiz Panel -->
+  <div id="quiz" class="panel">
+    <div id="question"></div>
+    <div id="options"></div>
+    <button id="nextBtn">Next</button>
+
+  </div>
+
+  <!-- Result Panel -->
+  <div id="result" class="panel">
+    <div id="resultSummary"></div>
+    <button id="downloadBtn">Download Certificate</button>
+    <button id="leaderboardBtn">View Leaderboard</button>
+  </div>
+
+  <!-- Leaderboard Panel -->
+  <div id="leaderboard" class="panel">
+    <h2>Leaderboard</h2>
+    <div id="leaderboardList"></div>
+    <button onclick="showPanel('studentLogin')">Back</button>
+    <button onclick="resetLeaderboard()">Reset Leaderboard</button>
+  </div>
+
+  <script src="script2.js" ></script>
+</body>
+</html>
